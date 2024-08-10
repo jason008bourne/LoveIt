@@ -4,6 +4,7 @@
         <div class="header-title">
             <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                 {{- with .Site.Params.header.title -}}
+                    {{- $hw := dict "author" $.Site.Params.author.name | T "headWelcome" -}}
                     {{- with .logo -}}
                         {{- dict "Src" . "Class" "logo" | partial "plugin/img.html" -}}
                     {{- end -}}
@@ -11,11 +12,11 @@
                         <span class="header-title-pre">{{ . | safeHTML }}</span>
                     {{- end -}}
                     {{- if .typeit -}}
-                        {{- $id := dict "Content" .name "Scratch" $.Scratch | partial "function/id.html" -}}
+                        {{- $id := dict "Content" $hw "Scratch" $.Scratch | partial "function/id.html" -}}
                         <span id="{{ $id }}" class="typeit"></span>
                         {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
                     {{- else -}}
-                        {{- .name -}}
+                        {{ $hw }}
                     {{- end -}}
                     {{- with .post -}}
                         <span class="header-title-post">{{ . | safeHTML }}</span>
@@ -91,6 +92,7 @@
             <div class="header-title">
                 <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                     {{- with .Site.Params.header.title -}}
+                        {{- $hw := dict "author" $.Site.Params.author.name | T "headWelcome" -}}
                         {{- with .logo -}}
                             {{- dict "Src" . "Class" "logo" | partial "plugin/img.html" -}}
                         {{- end -}}
@@ -98,11 +100,11 @@
                             <span class="header-title-pre">{{ . | safeHTML }}</span>
                         {{- end -}}
                         {{- if .typeit -}}
-                            {{- $id := dict "Content" .name "Scratch" $.Scratch | partial "function/id.html" -}}
+                            {{- $id := dict "Content" $hw "Scratch" $.Scratch | partial "function/id.html" -}}
                             <span id="{{ $id }}" class="typeit"></span>
                             {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
                         {{- else -}}
-                            {{- .name -}}
+                            {{- $hw -}}
                         {{- end -}}
                         {{- with .post -}}
                             <span class="header-title-post">{{ . | safeHTML }}</span>

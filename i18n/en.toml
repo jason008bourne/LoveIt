@@ -36,7 +36,15 @@ other = "Categories"
 other = "More"
 # === Pagination ===
 
+# === partials/home/profile.html ===
+[slogon]
+other = "Life is like a box of chocolates, you never know what you're gonna get"
+# === partials/home/profile.html ===
+
 # === partials/header.html ===
+[headWelcome]
+other = "Welcome to {{ .author }}'s home"
+
 [selectLanguage]
 other = "Select Language"
 

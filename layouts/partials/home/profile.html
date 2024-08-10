@@ -25,16 +25,14 @@
         <h1 class="home-title">
             {{- . | safeHTML -}}
         </h1>
-    {{- end -}}
-
-    {{- with $profile.subtitle -}}
         <div class="home-subtitle">
+            {{- $subtitle := T "slogon" | safeHTML -}}
             {{- if $profile.typeit -}}
-                {{- $id := dict "Content" . "Scratch" $.Scratch | partial "function/id.html" -}}
+                {{- $id := dict "Content" $subtitle "Scratch" $.Scratch | partial "function/id.html" -}}
                 <div id="{{ $id }}" class="typeit"></div>
                 {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
             {{- else -}}
-                {{- . | safeHTML -}}
+                {{- $subtitle -}}
             {{- end -}}
         </div>
     {{- end -}}

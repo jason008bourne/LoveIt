@@ -37,7 +37,15 @@ other = "分类"
 other = "更多"
 # === Pagination ===
 
+# === partials/home/profile.html ===
+[slogon]
+other = "人生就像一盒巧克力，你永远不知道你会得到什么"
+# === partials/home/profile.html ===
+
 # === partials/header.html ===
+[headWelcome]
+other = "欢迎来到{{ .author }}的窝"
+
 [selectLanguage]
 other = "选择语言"
 
